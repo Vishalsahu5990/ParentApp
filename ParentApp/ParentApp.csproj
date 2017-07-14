@@ -1,0 +1,583 @@
+﻿<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectGuid>{06AE6E11-4C52-4024-BF03-B092E85F5AFB}</ProjectGuid>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>ParentApp</RootNamespace>
+    <AssemblyName>ParentApp</AssemblyName>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: Moustafa Zedan (DWE59WHV4J)</CodesignKey>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>true</MtouchFastDev>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>i386</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>parentApp_AddHoc</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhone\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: Moustafa Zedan (DWE59WHV4J)</CodesignKey>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARMv7s, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>ParentApp_Distribution</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhoneSimulator' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\iPhoneSimulator\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: Moustafa Zedan (DWE59WHV4J)</CodesignKey>
+    <MtouchLink>None</MtouchLink>
+    <MtouchArch>i386, x86_64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>ParentApp_AppStore</CodesignProvision>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhone' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\Debug</OutputPath>
+    <DefineConstants>DEBUG;ENABLE_TEST_CLOUD;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodesignKey>iPhone Distribution: Moustafa Zedan (DWE59WHV4J)</CodesignKey>
+    <DeviceSpecificBuild>true</DeviceSpecificBuild>
+    <MtouchDebug>true</MtouchDebug>
+    <MtouchFastDev>false</MtouchFastDev>
+    <MtouchFloat32>true</MtouchFloat32>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
+    <MtouchLink>SdkOnly</MtouchLink>
+    <MtouchArch>ARMv7, ARM64</MtouchArch>
+    <MtouchHttpClientHandler>HttpClientHandler</MtouchHttpClientHandler>
+    <MtouchTlsProvider>Default</MtouchTlsProvider>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodesignProvision>ParentApp_Distribution</CodesignProvision>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Xamarin.iOS" />
+    <Reference Include="Xamarin-Sidebar-Unified">
+      <HintPath>..\Components\SidebarNavigation-1.9\lib\ios-unified\Xamarin-Sidebar-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Json" />
+    <Reference Include="BTProgressHUD">
+      <HintPath>..\Components\btprogresshud-1.20\lib\ios-unified\BTProgressHUD.dll</HintPath>
+    </Reference>
+    <Reference Include="SDWebImage">
+      <HintPath>..\packages\Xamarin.SDWebImage.3.7.5\lib\Xamarin.iOS\SDWebImage.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Mobile">
+      <HintPath>..\Components\xamarin.mobile-0.7.7\lib\ios-unified\Xamarin.Mobile.dll</HintPath>
+    </Reference>
+    <Reference Include="TimesSquare.iOS">
+      <HintPath>..\Components\timessquare-1.0.5\lib\ios-unified\TimesSquare.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Factorymind.Components-Unified">
+      <HintPath>..\Components\fmcalendar-1.5.4\lib\ios-unified\Factorymind.Components-Unified.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSocket4Net">
+      <HintPath>..\packages\WebSocket4Net.0.14.1\lib\Xamarin.iOS10\WebSocket4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="EngineIoClientDotNet">
+      <HintPath>..\packages\EngineIoClientDotNet.0.9.22\lib\xamarinios10\EngineIoClientDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="SocketIoClientDotNet">
+      <HintPath>..\packages\SocketIoClientDotNet.0.9.13\lib\xamarinios10\SocketIoClientDotNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Square.SocketRocket">
+      <HintPath>..\packages\Square.SocketRocket.0.4.2.0\lib\Xamarin.iOS\Square.SocketRocket.dll</HintPath>
+    </Reference>
+    <Reference Include="PagingView">
+      <HintPath>..\Components\paging-view-1.0\lib\ios-unified\PagingView.dll</HintPath>
+    </Reference>
+    <Reference Include="PushNotification.Plugin.Abstractions">
+      <HintPath>..\packages\Xam.Plugin.PushNotification.1.2.4\lib\Xamarin.iOS10\PushNotification.Plugin.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="PushNotification.Plugin">
+      <HintPath>..\packages\Xam.Plugin.PushNotification.1.2.4\lib\Xamarin.iOS10\PushNotification.Plugin.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.2.0.0.6490\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.2.0.0.6490\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform.iOS">
+      <HintPath>..\packages\Xamarin.Forms.2.0.0.6490\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.2.0.0.6490\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="KeyboardOverlap.Forms.Plugin.iOSUnified">
+      <HintPath>..\packages\Xam.Plugins.Forms.KeyboardOverlap.1.0.0.4\lib\Xamarin.iOS10\KeyboardOverlap.Forms.Plugin.iOSUnified.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-57x57%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-60x60%403x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-40x40%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-Small-50x50%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-72x72%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%401x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-76x76%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-83.5x83.5%402x.png" />
+    <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon-App-29x29%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+    <Folder Include="ViewControllers\" />
+    <Folder Include="Models\" />
+    <Folder Include="Data\" />
+    <Folder Include="TableviewSource\" />
+    <Folder Include="CustomTableViewCell\" />
+    <Folder Include="ExternalClasses\" />
+    <Folder Include="Base.lproj\" />
+    <Folder Include="Resources\en.lproj\" />
+    <Folder Include="Resources\ar.lproj\" />
+    <Folder Include="Ar_CustomTableViewCell\" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="LaunchScreen.storyboard" />
+    <InterfaceDefinition Include="ViewControllers\NavController.xib" />
+    <InterfaceDefinition Include="CustomTableViewCell\MenuList_tableviewcell.xib" />
+    <InterfaceDefinition Include="CustomTableViewCell\StudentList_tableviewcell.xib" />
+    <InterfaceDefinition Include="CustomTableViewCell\Notification_tableviewcell.xib" />
+    <InterfaceDefinition Include="CustomTableViewCell\Chat_tableviewcell.xib" />
+    <InterfaceDefinition Include="CustomTableViewCell\OutgoingMsgTableviewcell.xib" />
+    <InterfaceDefinition Include="LaunchScreenIpad.storyboard" />
+    <InterfaceDefinition Include="CustomTableViewCell\ipad_StudentList_tableviewcell.xib" />
+    <InterfaceDefinition Include="Main_Arabic.storyboard" />
+    <InterfaceDefinition Include="Main.storyboard" />
+    <InterfaceDefinition Include="Ar_CustomTableViewCell\ar_Chat_tableviewcell.xib" />
+    <InterfaceDefinition Include="Ar_CustomTableViewCell\ar_ipad_StudentList_tableviewcell.xib" />
+    <InterfaceDefinition Include="Ar_CustomTableViewCell\ar_MenuList_tableviewcell.xib" />
+    <InterfaceDefinition Include="Ar_CustomTableViewCell\ar_Notification_tableviewcell.xib" />
+    <InterfaceDefinition Include="Ar_CustomTableViewCell\ar_OutgoingMsgTableviewcell.xib" />
+    <InterfaceDefinition Include="Ar_CustomTableViewCell\ar_StudentList_tableviewcell.xib" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Info.plist" />
+    <None Include="Entitlements.plist" />
+    <None Include="packages.config" />
+    <None Include="PushNotificationApplicationDelegate.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Main.cs" />
+    <Compile Include="AppDelegate.cs" />
+    <Compile Include="ViewControllers\Login.designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\StaticMethods.cs" />
+    <Compile Include="ViewControllers\ForgotPassword.cs" />
+    <Compile Include="ViewControllers\ForgotPassword.designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\StudentReport.cs" />
+    <Compile Include="ViewControllers\Home.cs" />
+    <Compile Include="ViewControllers\ChatWithSchool.cs" />
+    <Compile Include="ViewControllers\Home.designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\NavController.cs" />
+    <Compile Include="ViewControllers\StudentList.cs" />
+    <Compile Include="ViewControllers\ChangePassword.cs" />
+    <Compile Include="ViewControllers\NavController.designer.cs">
+      <DependentUpon>NavController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableviewSource\MenuList_tableviewsource.cs" />
+    <Compile Include="CustomTableViewCell\MenuList_tableviewcell.cs" />
+    <Compile Include="CustomTableViewCell\OutgoingMsgTableviewcell.cs" />
+    <Compile Include="CustomTableViewCell\MenuList_tableviewcell.designer.cs">
+      <DependentUpon>MenuList_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DropdownModel.cs" />
+    <Compile Include="ViewControllers\NavigationMenu.cs" />
+    <Compile Include="ViewControllers\ReportAbsent.cs" />
+    <Compile Include="ViewControllers\NavigationMenu.designer.cs">
+      <DependentUpon>NavigationMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\StudentList.designer.cs">
+      <DependentUpon>StudentList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\BaseController.cs" />
+    <Compile Include="Data\StaticDataModel.cs" />
+    <Compile Include="Data\WebService.cs" />
+    <Compile Include="ExternalClasses\Reachability.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Models\StudentModel.cs" />
+    <Compile Include="CustomTableViewCell\StudentList_tableviewcell.cs" />
+    <Compile Include="CustomTableViewCell\StudentList_tableviewcell.designer.cs">
+      <DependentUpon>StudentList_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableviewSource\StudentList_tableviewsource.cs" />
+    <Compile Include="ViewControllers\StudentReport.designer.cs">
+      <DependentUpon>StudentReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalClasses\CustomAnnotation.cs" />
+    <Compile Include="Models\StudentLocationModel.cs" />
+    <Compile Include="Models\BusTrackingModel.cs" />
+    <Compile Include="ViewControllers\Profile.cs" />
+    <Compile Include="ViewControllers\Login.cs" />
+    <Compile Include="ViewControllers\Profile.designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\StudentTracking.cs" />
+    <Compile Include="ViewControllers\StudentTracking.designer.cs">
+      <DependentUpon>StudentTracking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\Settings.cs" />
+    <Compile Include="ViewControllers\Settings.designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SettingsModel.cs" />
+    <Compile Include="CustomTableViewCell\Notification_tableviewcell.cs" />
+    <Compile Include="CustomTableViewCell\Notification_tableviewcell.designer.cs">
+      <DependentUpon>Notification_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\NotificationModel.cs" />
+    <Compile Include="ViewControllers\NotificationsController.cs" />
+    <Compile Include="ViewControllers\NotificationsController.designer.cs">
+      <DependentUpon>NotificationsController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableviewSource\Notification_tableviewsource.cs" />
+    <Compile Include="ExternalClasses\CustomPopUpView.cs" />
+    <Compile Include="ViewControllers\ChatWithSchool.designer.cs">
+      <DependentUpon>ChatWithSchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChatModel.cs" />
+    <Compile Include="CustomTableViewCell\Chat_tableviewcell.cs" />
+    <Compile Include="CustomTableViewCell\Chat_tableviewcell.designer.cs">
+      <DependentUpon>Chat_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TableviewSource\Chat_tableviewsource.cs" />
+    <Compile Include="CustomTableViewCell\OutgoingMsgTableviewcell.designer.cs">
+      <DependentUpon>OutgoingMsgTableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalClasses\AnimatedImageView.cs" />
+    <Compile Include="ViewControllers\ChangePassword.designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomTableViewCell\ipad_StudentList_tableviewcell.cs" />
+    <Compile Include="CustomTableViewCell\ipad_StudentList_tableviewcell.designer.cs">
+      <DependentUpon>ipad_StudentList_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalClasses\SlideCalendar.cs" />
+    <Compile Include="ExternalClasses\GetPickerUi.cs" />
+    <Compile Include="ViewControllers\ReportAbsent.designer.cs">
+      <DependentUpon>ReportAbsent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalClasses\CustomCalendar.cs" />
+    <Compile Include="Models\AttendanceModel.cs" />
+    <Compile Include="TestController.cs" />
+    <Compile Include="TestController.designer.cs">
+      <DependentUpon>TestController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalClasses\LanguagePopup.cs" />
+    <Compile Include="Ar_CustomTableViewCell\ar_Chat_tableviewcell.cs" />
+    <Compile Include="Ar_CustomTableViewCell\ar_Chat_tableviewcell.designer.cs">
+      <DependentUpon>ar_Chat_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ar_CustomTableViewCell\ar_ipad_StudentList_tableviewcell.cs" />
+    <Compile Include="Ar_CustomTableViewCell\ar_ipad_StudentList_tableviewcell.designer.cs">
+      <DependentUpon>ar_ipad_StudentList_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ar_CustomTableViewCell\ar_MenuList_tableviewcell.cs" />
+    <Compile Include="Ar_CustomTableViewCell\ar_MenuList_tableviewcell.designer.cs">
+      <DependentUpon>ar_MenuList_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ar_CustomTableViewCell\ar_Notification_tableviewcell.cs" />
+    <Compile Include="Ar_CustomTableViewCell\ar_Notification_tableviewcell.designer.cs">
+      <DependentUpon>ar_Notification_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ar_CustomTableViewCell\ar_OutgoingMsgTableviewcell.cs" />
+    <Compile Include="Ar_CustomTableViewCell\ar_OutgoingMsgTableviewcell.designer.cs">
+      <DependentUpon>ar_OutgoingMsgTableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ar_CustomTableViewCell\ar_StudentList_tableviewcell.cs" />
+    <Compile Include="Ar_CustomTableViewCell\ar_StudentList_tableviewcell.designer.cs">
+      <DependentUpon>ar_StudentList_tableviewcell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\LanguageSelector.cs" />
+    <Compile Include="ViewControllers\LanguageSelector.designer.cs">
+      <DependentUpon>LanguageSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\LanguageSelectorIpad.cs" />
+    <Compile Include="ViewControllers\LanguageSelectorIpad.designer.cs">
+      <DependentUpon>LanguageSelectorIpad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExternalClasses\CrossPushNotificationListener.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\back.png" />
+    <BundleResource Include="Resources\blue.png" />
+    <BundleResource Include="Resources\bus.png" />
+    <BundleResource Include="Resources\calender.png" />
+    <BundleResource Include="Resources\car.png" />
+    <BundleResource Include="Resources\change-pw.png" />
+    <BundleResource Include="Resources\chat.png" />
+    <BundleResource Include="Resources\cloud.png" />
+    <BundleResource Include="Resources\down-arrow.png" />
+    <BundleResource Include="Resources\email.png" />
+    <BundleResource Include="Resources\grey.png" />
+    <BundleResource Include="Resources\home.png" />
+    <BundleResource Include="Resources\language.png" />
+    <BundleResource Include="Resources\logout.png" />
+    <BundleResource Include="Resources\marker1.png" />
+    <BundleResource Include="Resources\marker2.png" />
+    <BundleResource Include="Resources\marker3.png" />
+    <BundleResource Include="Resources\menu.png" />
+    <BundleResource Include="Resources\next.png" />
+    <BundleResource Include="Resources\notification.png" />
+    <BundleResource Include="Resources\password.png" />
+    <BundleResource Include="Resources\previous.png" />
+    <BundleResource Include="Resources\profile.png" />
+    <BundleResource Include="Resources\report-absent.png" />
+    <BundleResource Include="Resources\select-arrow.png" />
+    <BundleResource Include="Resources\setting.png" />
+    <BundleResource Include="Resources\Untitled-1.png" />
+    <BundleResource Include="Resources\user.png" />
+    <BundleResource Include="Resources\back%402x.png" />
+    <BundleResource Include="Resources\blue%402x.png" />
+    <BundleResource Include="Resources\bus%402x.png" />
+    <BundleResource Include="Resources\calender%402x.png" />
+    <BundleResource Include="Resources\car%402x.png" />
+    <BundleResource Include="Resources\change-pw%402x.png" />
+    <BundleResource Include="Resources\chat%402x.png" />
+    <BundleResource Include="Resources\cloud%402x.png" />
+    <BundleResource Include="Resources\down-arrow%402x.png" />
+    <BundleResource Include="Resources\email%402x.png" />
+    <BundleResource Include="Resources\grey%402x.png" />
+    <BundleResource Include="Resources\home%402x.png" />
+    <BundleResource Include="Resources\language%402x.png" />
+    <BundleResource Include="Resources\logout%402x.png" />
+    <BundleResource Include="Resources\marker1%402x.png" />
+    <BundleResource Include="Resources\marker2%402x.png" />
+    <BundleResource Include="Resources\marker3%402x.png" />
+    <BundleResource Include="Resources\menu%402x.png" />
+    <BundleResource Include="Resources\next%402x.png" />
+    <BundleResource Include="Resources\notification%402x.png" />
+    <BundleResource Include="Resources\password%402x.png" />
+    <BundleResource Include="Resources\previous%402x.png" />
+    <BundleResource Include="Resources\profile%402x.png" />
+    <BundleResource Include="Resources\report-absent%402x.png" />
+    <BundleResource Include="Resources\select-arrow%402x.png" />
+    <BundleResource Include="Resources\setting%402x.png" />
+    <BundleResource Include="Resources\user%402x.png" />
+    <BundleResource Include="Resources\back~ipad.png" />
+    <BundleResource Include="Resources\blue~ipad.png" />
+    <BundleResource Include="Resources\bus~ipad.png" />
+    <BundleResource Include="Resources\calender~ipad.png" />
+    <BundleResource Include="Resources\car~ipad.png" />
+    <BundleResource Include="Resources\change-pw~ipad.png" />
+    <BundleResource Include="Resources\chat~ipad.png" />
+    <BundleResource Include="Resources\cloud~ipad.png" />
+    <BundleResource Include="Resources\down-arrow~ipad.png" />
+    <BundleResource Include="Resources\email~ipad.png" />
+    <BundleResource Include="Resources\grey~ipad.png" />
+    <BundleResource Include="Resources\home~ipad.png" />
+    <BundleResource Include="Resources\language~ipad.png" />
+    <BundleResource Include="Resources\logout~ipad.png" />
+    <BundleResource Include="Resources\marker1~ipad.png" />
+    <BundleResource Include="Resources\marker2~ipad.png" />
+    <BundleResource Include="Resources\marker3~ipad.png" />
+    <BundleResource Include="Resources\menu~ipad.png" />
+    <BundleResource Include="Resources\next~ipad.png" />
+    <BundleResource Include="Resources\notification~ipad.png" />
+    <BundleResource Include="Resources\password~ipad.png" />
+    <BundleResource Include="Resources\previous~ipad.png" />
+    <BundleResource Include="Resources\profile~ipad.png" />
+    <BundleResource Include="Resources\report-absent~ipad.png" />
+    <BundleResource Include="Resources\select-arrow~ipad.png" />
+    <BundleResource Include="Resources\setting~ipad.png" />
+    <BundleResource Include="Resources\user~ipad.png" />
+    <BundleResource Include="Resources\back%403x.png" />
+    <BundleResource Include="Resources\blue%403x.png" />
+    <BundleResource Include="Resources\bus%403x.png" />
+    <BundleResource Include="Resources\calender%403x.png" />
+    <BundleResource Include="Resources\car%403x.png" />
+    <BundleResource Include="Resources\change-pw%403x.png" />
+    <BundleResource Include="Resources\chat%403x.png" />
+    <BundleResource Include="Resources\cloud%403x.png" />
+    <BundleResource Include="Resources\down-arrow%403x.png" />
+    <BundleResource Include="Resources\email%403x.png" />
+    <BundleResource Include="Resources\grey%403x.png" />
+    <BundleResource Include="Resources\home%403x.png" />
+    <BundleResource Include="Resources\language%403x.png" />
+    <BundleResource Include="Resources\logout%403x.png" />
+    <BundleResource Include="Resources\marker1%403x.png" />
+    <BundleResource Include="Resources\marker2%403x.png" />
+    <BundleResource Include="Resources\marker3%403x.png" />
+    <BundleResource Include="Resources\menu%403x.png" />
+    <BundleResource Include="Resources\next%403x.png" />
+    <BundleResource Include="Resources\notification%403x.png" />
+    <BundleResource Include="Resources\password%403x.png" />
+    <BundleResource Include="Resources\previous%403x.png" />
+    <BundleResource Include="Resources\profile%403x.png" />
+    <BundleResource Include="Resources\report-absent%403x.png" />
+    <BundleResource Include="Resources\select-arrow%403x.png" />
+    <BundleResource Include="Resources\setting%403x.png" />
+    <BundleResource Include="Resources\Untitled-1%403x.png" />
+    <BundleResource Include="Resources\user%403x.png" />
+    <BundleResource Include="Resources\back%402x~ipad.png" />
+    <BundleResource Include="Resources\blue%402x~ipad.png" />
+    <BundleResource Include="Resources\bus%402x~ipad.png" />
+    <BundleResource Include="Resources\calender%402x~ipad.png" />
+    <BundleResource Include="Resources\car%402x~ipad.png" />
+    <BundleResource Include="Resources\change-pw%402x~ipad.png" />
+    <BundleResource Include="Resources\chat%402x~ipad.png" />
+    <BundleResource Include="Resources\cloud%402x~ipad.png" />
+    <BundleResource Include="Resources\down-arrow%402x~ipad.png" />
+    <BundleResource Include="Resources\email%402x~ipad.png" />
+    <BundleResource Include="Resources\grey%402x~ipad.png" />
+    <BundleResource Include="Resources\home%402x~ipad.png" />
+    <BundleResource Include="Resources\language%402x~ipad.png" />
+    <BundleResource Include="Resources\logout%402x~ipad.png" />
+    <BundleResource Include="Resources\marker1%402x~ipad.png" />
+    <BundleResource Include="Resources\marker2%402x~ipad.png" />
+    <BundleResource Include="Resources\marker3%402x~ipad.png" />
+    <BundleResource Include="Resources\menu%402x~ipad.png" />
+    <BundleResource Include="Resources\next%402x~ipad.png" />
+    <BundleResource Include="Resources\notification%402x~ipad.png" />
+    <BundleResource Include="Resources\password%402x~ipad.png" />
+    <BundleResource Include="Resources\previous%402x~ipad.png" />
+    <BundleResource Include="Resources\profile%402x~ipad.png" />
+    <BundleResource Include="Resources\report-absent%402x~ipad.png" />
+    <BundleResource Include="Resources\select-arrow%402x~ipad.png" />
+    <BundleResource Include="Resources\setting%402x~ipad.png" />
+    <BundleResource Include="Resources\Untitled-1%402x~ipad.png" />
+    <BundleResource Include="Resources\user%402x~ipad.png" />
+    <BundleResource Include="Resources\logo%402x~ipad.png" />
+    <BundleResource Include="Resources\logo%403x.png" />
+    <BundleResource Include="Resources\logo~ipad.png" />
+    <BundleResource Include="Resources\logo%402x.png" />
+    <BundleResource Include="Resources\logo.png" />
+    <BundleResource Include="Resources\bg.png" />
+    <BundleResource Include="Resources\bg%402x.png" />
+    <BundleResource Include="Resources\bg%402x~ipad.png" />
+    <BundleResource Include="Resources\bg%403x.png" />
+    <BundleResource Include="Resources\bg~ipad.png" />
+    <BundleResource Include="Resources\checked.png" />
+    <BundleResource Include="Resources\checked%402x.png" />
+    <BundleResource Include="Resources\checked%403x.png" />
+    <BundleResource Include="Resources\checked%403x~ipad.png" />
+    <BundleResource Include="Resources\checked~ipad.png" />
+    <BundleResource Include="Resources\profilepic.jpg" />
+    <BundleResource Include="Resources\left-arrow.png" />
+    <BundleResource Include="Resources\right-arrow.png" />
+    <BundleResource Include="Resources\greenmarker.png" />
+    <BundleResource Include="Resources\sourcemarker.png" />
+    <BundleResource Include="Resources\yellowmarker.png" />
+    <BundleResource Include="Resources\phone.png" />
+    <BundleResource Include="Resources\seen.png" />
+    <BundleResource Include="Resources\unseen.png" />
+    <BundleResource Include="Resources\typing.gif" />
+    <BundleResource Include="Resources\splash.png" />
+    <BundleResource Include="Resources\splash%402x.png" />
+    <BundleResource Include="Resources\splash%403x.png" />
+    <BundleResource Include="Resources\splash~ipad.png" />
+    <BundleResource Include="Resources\splash%402x~ipad.png" />
+    <BundleResource Include="Resources\password1.png" />
+    <BundleResource Include="Resources\password1%402x.png" />
+    <BundleResource Include="Resources\password1%402x~ipad.png" />
+    <BundleResource Include="Resources\password1%403x.png" />
+    <BundleResource Include="Resources\password1~ipad.png" />
+    <BundleResource Include="Resources\dummy_StudentProile.png" />
+    <BundleResource Include="Resources\call.png" />
+    <BundleResource Include="Resources\call%402x.png" />
+    <BundleResource Include="Resources\call%403x.png" />
+    <BundleResource Include="Resources\call~ipad.png" />
+    <BundleResource Include="Resources\call~ipad%402x.png" />
+    <BundleResource Include="Resources\call1.png" />
+    <BundleResource Include="Resources\previous~ipad%402x.png" />
+    <BundleResource Include="Resources\next~ipad%402x.png" />
+    <BundleResource Include="Resources\select-arrow~ipad%402x.png" />
+    <BundleResource Include="Resources\search.png" />
+    <BundleResource Include="Resources\ar.lproj\InfoPlist.strings" />
+    <BundleResource Include="Resources\ar.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\ar.lproj\Main.strings" />
+    <BundleResource Include="Resources\en.lproj\Localizable.strings" />
+    <BundleResource Include="Resources\en.lproj\Main.strings" />
+    <BundleResource Include="Resources\right-arrow1.png" />
+    <BundleResource Include="Resources\arabic.jpg" />
+    <BundleResource Include="Resources\english.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="SidebarNavigation">
+      <Version>1.9</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="btprogresshud">
+      <Version>1.20</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="sdwebimage">
+      <Version>3.7.5</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="xamarin.mobile">
+      <Version>0.7.7</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="timessquare">
+      <Version>1.0.5</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="fmcalendar">
+      <Version>1.5.4</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="square.socketrocket">
+      <Version>0.4.2.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="paging-view">
+      <Version>1.0</Version>
+      <Visible>False</Visible>
+    </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ITunesArtwork Include="iTunesArtwork" />
+    <ITunesArtwork Include="iTunesArtwork%402x" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
+  <Import Project="..\packages\Xamarin.Forms.2.0.0.6490\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.0.6490\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+</Project>

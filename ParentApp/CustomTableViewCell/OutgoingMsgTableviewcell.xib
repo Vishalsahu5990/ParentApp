@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="84" id="cxk-wN-pdQ" customClass="OutgoingMsgTableviewcell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="84"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cxk-wN-pdQ" id="YTl-1W-gDM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleAspectFit" semanticContentAttribute="forceRightToLeft" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="28">
+                        <rect key="frame" x="98" y="6" width="214" height="47"/>
+                        <color key="backgroundColor" red="0.96470588235294119" green="0.99215686274509807" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal">
+                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="wordWrap" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4">
+                        <rect key="frame" x="114" y="26" width="189" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="189" id="qlv-gi-F9p"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="25" misplaced="YES">
+                        <rect key="frame" x="160" y="8" width="143" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="143" id="pd6-4Z-Z9p"/>
+                            <constraint firstAttribute="height" constant="17" id="u9I-G2-8Nq"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3g-hL-HTS">
+                        <rect key="frame" x="287" y="50" width="25" height="28"/>
+                        <color key="backgroundColor" red="0.96470588239999999" green="0.99215686270000003" blue="0.96078431369999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="unseen.png"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="28" firstAttribute="trailing" secondItem="YTl-1W-gDM" secondAttribute="trailingMargin" id="0Vg-Ts-3cc"/>
+                    <constraint firstItem="K3g-hL-HTS" firstAttribute="trailing" secondItem="28" secondAttribute="trailing" id="3h9-93-jut"/>
+                    <constraint firstItem="4" firstAttribute="trailing" secondItem="25" secondAttribute="trailing" id="7SE-Gf-MM2"/>
+                    <constraint firstItem="4" firstAttribute="top" secondItem="25" secondAttribute="bottom" constant="1" id="Bkx-DQ-sbe"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="4" secondAttribute="bottom" constant="20" id="R4M-f7-Z00"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="28" secondAttribute="bottom" constant="14" id="Ta3-Ie-joH"/>
+                    <constraint firstAttribute="bottom" secondItem="K3g-hL-HTS" secondAttribute="bottom" id="UT5-gh-ozp"/>
+                    <constraint firstItem="28" firstAttribute="firstBaseline" secondItem="25" secondAttribute="baseline" id="VQv-qU-uDU"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="25" secondAttribute="trailing" constant="9" id="ZcO-U5-l4J"/>
+                    <constraint firstItem="K3g-hL-HTS" firstAttribute="leading" secondItem="28" secondAttribute="leading" id="eH8-4Z-fZU"/>
+                    <constraint firstItem="25" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" id="hHh-Lm-FDY"/>
+                    <constraint firstItem="28" firstAttribute="top" secondItem="YTl-1W-gDM" secondAttribute="topMargin" constant="-2" id="hQ0-2J-J7p"/>
+                    <constraint firstItem="28" firstAttribute="leading" secondItem="YTl-1W-gDM" secondAttribute="leadingMargin" constant="90" id="iC5-By-XYc"/>
+                    <constraint firstItem="K3g-hL-HTS" firstAttribute="top" secondItem="28" secondAttribute="bottom" id="lnz-QL-f82"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <connections>
+                <outlet property="btnTickMark" destination="K3g-hL-HTS" id="name-outlet-K3g-hL-HTS"/>
+                <outlet property="lbl1" destination="25" id="name-outlet-25"/>
+                <outlet property="lbl2" destination="4" id="name-outlet-4"/>
+            </connections>
+            <point key="canvasLocation" x="322" y="215"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="unseen.png" width="25" height="28"/>
+        <image name="back.png" width="20" height="15"/>
+        <image name="blue.png" width="9" height="9"/>
+        <image name="bus.png" width="13" height="34"/>
+        <image name="calender.png" width="17" height="19"/>
+        <image name="car.png" width="22" height="24"/>
+        <image name="change-pw.png" width="18" height="20"/>
+        <image name="chat.png" width="19" height="13"/>
+        <image name="cloud.png" width="23" height="18"/>
+        <image name="down-arrow.png" width="11" height="6"/>
+        <image name="email.png" width="18" height="18"/>
+        <image name="grey.png" width="9" height="9"/>
+        <image name="home.png" width="19" height="17"/>
+        <image name="language.png" width="20" height="17"/>
+        <image name="logout.png" width="18" height="19"/>
+        <image name="marker1.png" width="49" height="54"/>
+        <image name="marker2.png" width="21" height="34"/>
+        <image name="marker3.png" width="32" height="44"/>
+        <image name="menu.png" width="21" height="14"/>
+        <image name="next.png" width="26" height="26"/>
+        <image name="notification.png" width="19" height="21"/>
+        <image name="password.png" width="18" height="18"/>
+        <image name="previous.png" width="26" height="26"/>
+        <image name="profile.png" width="21" height="20"/>
+        <image name="report-absent.png" width="18" height="17"/>
+        <image name="select-arrow.png" width="10" height="5"/>
+        <image name="setting.png" width="17" height="18"/>
+        <image name="Untitled-1.png" width="18" height="18"/>
+        <image name="user.png" width="16" height="19"/>
+        <image name="logo.png" width="198" height="95"/>
+        <image name="bg.png" width="320" height="569"/>
+        <image name="checked.png" width="17" height="16"/>
+        <image name="profilepic.jpg" width="448" height="448"/>
+        <image name="left-arrow.png" width="32" height="32"/>
+        <image name="right-arrow.png" width="32" height="32"/>
+        <image name="greenmarker.png" width="50" height="64"/>
+        <image name="sourcemarker.png" width="48" height="48"/>
+        <image name="yellowmarker.png" width="50" height="64"/>
+        <image name="phone.png" width="32" height="32"/>
+        <image name="seen.png" width="25" height="20"/>
+        <image name="typing.gif" width="77" height="38"/>
+        <image name="splash.png" width="320" height="569"/>
+        <image name="password1.png" width="14" height="18"/>
+        <image name="dummy_StudentProile.png" width="152" height="152"/>
+        <image name="call.png" width="18" height="18"/>
+        <image name="call1.png" width="45" height="45"/>
+        <image name="search.png" width="16" height="16"/>
+        <image name="right-arrow1.png" width="24" height="24"/>
+        <image name="arabic.jpg" width="60" height="40"/>
+        <image name="english.jpg" width="60" height="40"/>
+    </resources>
+</document>

@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParentApp", "ParentApp\ParentApp.csproj", "{06AE6E11-4C52-4024-BF03-B092E85F5AFB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|iPhoneSimulator = Debug|iPhoneSimulator
+		Release|iPhone = Release|iPhone
+		Release|iPhoneSimulator = Release|iPhoneSimulator
+		Debug|iPhone = Debug|iPhone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Release|iPhone.ActiveCfg = Release|iPhone
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Release|iPhone.Build.0 = Release|iPhone
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{06AE6E11-4C52-4024-BF03-B092E85F5AFB}.Debug|iPhone.Build.0 = Debug|iPhone
+	EndGlobalSection
+EndGlobal
